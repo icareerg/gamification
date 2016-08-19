@@ -17,7 +17,7 @@ class RuleConductSearch extends RuleConduct
     {
         return [
             [['rule_id', 'level_id', 'conduct_id'], 'integer'],
-            [['experience', 'integral'], 'number'],
+            [['experience', 'integral'], 'double'],
             [['level_name','conduct_name', 'rewards_penalties_name'],'string'],
         ];
     }

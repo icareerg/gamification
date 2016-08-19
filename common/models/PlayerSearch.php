@@ -19,7 +19,7 @@ class PlayerSearch extends Player
             [['player_id', 'level_id'], 'integer'],
             [['player_name', 'passwd'], 'safe'],
             [['level_name', 'passwd'], 'string'],
-            [['experience', 'integral'], 'number'],
+            [['experience', 'integral'], 'double'],
         ];
     }
 

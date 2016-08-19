@@ -18,7 +18,7 @@ class RuleDurationSearch extends RuleDuration
         return [
             [['rule_id', 'conduct_id', 'duration_id'], 'integer'],
             [['conduct_name', 'duration_name'], 'string'],
-            [['percentage'], 'number'],
+            [['percentage'], 'double'],
         ];
     }
 

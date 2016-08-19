@@ -34,7 +34,7 @@ class PlayLog extends \yii\db\ActiveRecord
             [['player_id', 'conduct_id', 'duration_id', 'experience', 'integral'], 'required'],
             [['player_id', 'conduct_id', 'duration_id' ], 'integer'],
             [['conduct_name','player_name'],'string'],
-            [['experience', 'integral'], 'number'],
+            [['experience', 'integral'], 'double'],
             [['happen_time'],'date','format'=>'yyyy-MM-dd HH:mm'],
         ];
     }

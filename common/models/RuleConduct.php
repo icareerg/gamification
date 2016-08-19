@@ -32,7 +32,7 @@ class RuleConduct extends \yii\db\ActiveRecord
         return [
             [['level_id', 'conduct_id', 'experience', 'integral'], 'required'],
             [['level_id', 'conduct_id', 'rewards_penalties_id'], 'integer'],
-            [['experience', 'integral'], 'number'],
+            [['experience', 'integral'], 'double'],
             [['level_name','conduct_name', 'rewards_penalties_name'],'string']
         ];
     }

@@ -17,7 +17,7 @@ class PlaylogSearch extends PlayLog
     {
         return [
             [['play_id', 'player_id', 'conduct_id', 'happen_time'], 'integer'],
-            [['experience', 'integral'], 'number'],
+            [['experience', 'integral'], 'double'],
             [['conduct_name','player_name'],'string'],
         ];
     }
