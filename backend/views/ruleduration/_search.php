@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\RuleDurationSearch */
+/* @var $model common\models\RuleDurationSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -17,7 +17,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'rule_id') ?>
 
-    <?= $form->field($model, 'level_id') ?>
+    <?= $form->field($model, 'conduct_id') ?>
 
     <?= $form->field($model, 'duration_id') ?>
 

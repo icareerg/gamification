@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            ['attribute'=>'level_name','value' => 'level_name','enableSorting' => false],
+            ['attribute'=>'conduct_name','value' => 'conduct_name','enableSorting' => false],
             ['attribute'=>'duration_name','value' => 'duration_name','enableSorting' => false],
             ['attribute'=>'percentage','value' => 'percentage','enableSorting' => false],
 

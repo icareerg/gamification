@@ -30,8 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'rule_id',
             [
-                'label' => $model->attributeLabels()['level_name'],
-                'value' => $model->level->level_name,
+                'label' => $model->attributeLabels()['conduct_name'],
+                'value' => $model->conduct->conduct_name,
             ],
             [
                 'label' => $model->attributeLabels()['duration_name'],

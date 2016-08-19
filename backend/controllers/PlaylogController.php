@@ -86,7 +86,7 @@ class PlaylogController extends Controller
             $integral = $play_rule_conduct->getConductrule($level_id,$conduct_id)->integral;
             //获取时长对应的积分百分比
             $play_rule_duration = new RuleDuration();
-            $percentage = $play_rule_duration->getDurationrule($level_id,$duration_id)->percentage;
+            $percentage = $play_rule_duration->getDurationrule($conduct_id,$duration_id)->percentage;
             //构造写Playerlog表的数据
             $model->experience = $experience;
             $model->integral = $integral * $percentage;

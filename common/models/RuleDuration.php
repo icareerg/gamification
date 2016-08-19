@@ -12,7 +12,7 @@ namespace common\models;
  */
 class RuleDuration extends \yii\db\ActiveRecord
 {
-    public $level_name;
+    public $conduct_name;
     public $duration_name;
     /**
      * @inheritdoc
@@ -28,9 +28,9 @@ class RuleDuration extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['level_id', 'duration_id', 'percentage'], 'required'],
-            [['level_id', 'duration_id'], 'integer'],
-            [['level_name', 'duration_name'], 'string'],
+            [['conduct_id', 'duration_id', 'percentage'], 'required'],
+            [['conduct_id', 'duration_id'], 'integer'],
+            [['conduct_name', 'duration_name'], 'string'],
             [['percentage'], 'number'],
         ];
     }
@@ -42,22 +42,22 @@ class RuleDuration extends \yii\db\ActiveRecord
     {
         return [
             'rule_id' => '主键',
-            'level_id' => '玩家级别ID',
+            'conduct_id' => '行为级别ID',
             'duration_id' => '时长类型ID',
-            'level_name' => '玩家级别',
+            'conduct_name' => '行为级别',
             'duration_name' => '时长类型',
             'percentage' => '百分比',
         ];
     }
 
-    public function getDurationrule($level_id,$duration_id)
+    public function getDurationrule($conduct_id,$duration_id)
     {
-        return RuleDuration::findOne(['level_id' => $level_id,'duration_id' => $duration_id]);
+        return RuleDuration::findOne(['conduct_id' => $conduct_id,'duration_id' => $duration_id]);
     }
 
-    public function getLevel()
+    public function getConduct()
     {
-        return $this->hasOne(PlayerLevel::className(), ['level_id' => 'level_id']);
+        return $this->hasOne(PlayerConduct::className(), ['conduct_id' => 'conduct_id']);
     }
 
     public function getDuration()

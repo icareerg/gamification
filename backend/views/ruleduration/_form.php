@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\RuleDuration */
+/* @var $model common\models\RuleDuration */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'level_id')->label($model->attributeLabels()['level_name'])->dropDownList($player->getLevels());?>
+    <?= $form->field($model, 'conduct_id')->label($model->attributeLabels()['conduct_name'])->dropDownList($player->getConducts());?>
 
     <?= $form->field($model, 'duration_id')->label($model->attributeLabels()['duration_name'])->dropDownList($duration->getDurations());?>
 

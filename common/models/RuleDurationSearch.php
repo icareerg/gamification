@@ -16,8 +16,8 @@ class RuleDurationSearch extends RuleDuration
     public function rules()
     {
         return [
-            [['rule_id', 'level_id', 'duration_id'], 'integer'],
-            [['level_name', 'duration_name'], 'string'],
+            [['rule_id', 'conduct_id', 'duration_id'], 'integer'],
+            [['conduct_name', 'duration_name'], 'string'],
             [['percentage'], 'number'],
         ];
     }
@@ -41,9 +41,9 @@ class RuleDurationSearch extends RuleDuration
     public function search($params)
     {
         $query = RuleDuration::find();
-        $query->joinWith('level');
+        $query->joinWith('conduct');
         $query->joinWith('duration');
-        $query->select(RuleDuration::tableName().'.*,level_name,duration_name');
+        $query->select(RuleDuration::tableName().'.*,conduct_name,duration_name');
 
         // add conditions that should always apply here
 
@@ -62,12 +62,12 @@ class RuleDurationSearch extends RuleDuration
         // grid filtering conditions
         $query->andFilterWhere([
             'rule_id' => $this->rule_id,
-            'level_id' => $this->level_id,
+            'conduct_id' => $this->conduct_id,
             'duration_id' => $this->duration_id,
             'percentage' => $this->percentage,
         ]);
 
-        $query->andFilterWhere(['like', 'level_name', $this->level_name])
+        $query->andFilterWhere(['like', 'conduct_name', $this->conduct_name])
             ->andFilterWhere(['like', 'duration_name', $this->duration_name]);
 
         return $dataProvider;
