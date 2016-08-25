@@ -18,7 +18,7 @@ class PlaylogSearch extends PlayLog
         return [
             [['play_id', 'player_id', 'conduct_id', 'happen_time'], 'integer'],
             [['experience', 'integral'], 'double'],
-            [['conduct_name','player_name'],'string'],
+            [['conduct_name','player_name','rewards_penalties_name'],'string'],
         ];
     }
 
@@ -43,7 +43,8 @@ class PlaylogSearch extends PlayLog
         $query = PlayLog::find();
         $query->joinWith('conduct');
         $query->joinWith('player');
-        $query->select(PlayLog::tableName().'.*,conduct_name,player_name');
+        $query->joinWith('rewardspenalties');
+        $query->select(PlayLog::tableName().'.*,conduct_name,player_name,rewards_penalties_name');
 
         // add conditions that should always apply here
 
@@ -68,6 +69,7 @@ class PlaylogSearch extends PlayLog
 
         $query->andFilterWhere(['like', 'conduct_name', $this->conduct_name])
             ->andFilterWhere(['like', 'player_name', $this->player_name])
+            ->andFilterWhere(['like', 'rewards_penalties_name', $this->rewards_penalties_name])
             ->andFilterWhere(['like', PlayLog::tableName().'.experience', $this->experience])
             ->andFilterWhere(['like', PlayLog::tableName().'.integral', $this->integral])
             ->andFilterWhere(['like', PlayLog::tableName().'.happen_time', $this->happen_time]);

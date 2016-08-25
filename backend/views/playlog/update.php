@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = '修改';
         'model' => $model,
         'player' => $player,
         'duration' => $duration,
+        'rewards_penalties' => $rewards_penalties,
     ]) ?>
 
 </div>

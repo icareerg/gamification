@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\PlayLog */
+/* @var $model common\models\PlayLog */
 
 $this->title = $model->play_id;
 $this->params['breadcrumbs'][] = ['label' => '数据', 'url' => ['index']];
@@ -39,6 +39,10 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => $model->attributeLabels()['duration_name'],
                 'value' => $model->duration->duration_name,
+            ],
+            [
+                'label' => $model->attributeLabels()['rewards_penalties_name'],
+                'value' => $model->rewardspenalties->rewards_penalties_name,
             ],
             'experience',
             'integral',

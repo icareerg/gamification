@@ -28,6 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['attribute'=>'player_name','value' => 'player_name','enableSorting' => false],
 //            'conducts.conduct_name',
             ['attribute'=>'conduct_name','value' => 'conduct_name','enableSorting' => false],
+            ['attribute'=>'rewards_penalties_name','value' => 'rewards_penalties_name','enableSorting' => false],
             ['attribute'=>'experience','value' => 'experience','enableSorting' => false],
             ['attribute'=>'integral','value' => 'integral','enableSorting' => false],
             ['attribute'=>'happen_time','value' => 'happen_time','format'=>'datetime','enableSorting' => false],

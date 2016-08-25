@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
 use kartik\datetime\DateTimePicker;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\PlayLog */
+/* @var $model common\models\PlayLog */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -35,6 +35,11 @@ use kartik\datetime\DateTimePicker;
         echo $form->field($model, 'duration_id')
         ->label($duration->attributeLabels()['duration_name'])
         ->dropDownList($duration->getDurations());
+
+        echo $form->field($model, 'rewards_penalties_id')
+        ->label($rewards_penalties->attributeLabels()['rewards_penalties_name'])
+        ->dropDownList($rewards_penalties->getRewardspenalties());
+
     if ($model->isNewRecord) {
         echo $form->field($model, 'happen_time')->textInput(['readonly' => true,'value' => date('Y-m-d H:i')]);
     }else{

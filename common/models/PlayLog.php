@@ -17,6 +17,7 @@ class PlayLog extends \yii\db\ActiveRecord
 {
     public $conduct_name;
     public $player_name;
+    public $rewards_penalties_name;
     /**
      * @inheritdoc
      */
@@ -31,9 +32,9 @@ class PlayLog extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['player_id', 'conduct_id', 'duration_id', 'experience', 'integral'], 'required'],
-            [['player_id', 'conduct_id', 'duration_id' ], 'integer'],
-            [['conduct_name','player_name'],'string'],
+            [['player_id', 'conduct_id', 'duration_id','rewards_penalties_id', 'experience', 'integral'], 'required'],
+            [['player_id', 'conduct_id', 'duration_id','rewards_penalties_id' ], 'integer'],
+            [['conduct_name','player_name','rewards_penalties_name'],'string'],
             [['experience', 'integral'], 'double'],
             [['happen_time'],'date','format'=>'yyyy-MM-dd HH:mm'],
         ];
@@ -51,6 +52,8 @@ class PlayLog extends \yii\db\ActiveRecord
             'conduct_id' => '行为ID',
             'conduct_name' => '行为类别',
             'duration_id' => '时长类型ID',
+            'rewards_penalties_id' => '奖惩类型ID',
+            'rewards_penalties_name' => '奖惩类型',
             'duration_name' => '时长',
             'experience' => '经验值',
             'integral' => '积分',
@@ -85,5 +88,10 @@ class PlayLog extends \yii\db\ActiveRecord
     public function getDuration()
     {
         return $this->hasOne(Duration::className(), ['duration_id' => 'duration_id']);
+    }
+
+    public function getRewardspenalties()
+    {
+        return $this->hasOne(RewardsPenalties::className(), ['rewards_penalties_id' => 'rewards_penalties_id']);
     }
 }

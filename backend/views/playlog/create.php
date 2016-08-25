@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'player' => $player,
         'duration' => $duration,
+        'rewards_penalties' => $rewards_penalties,
     ]);
     ?>
 

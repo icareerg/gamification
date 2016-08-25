@@ -55,9 +55,11 @@ class RuleConduct extends \yii\db\ActiveRecord
         ];
     }
 
-    public function getConductrule($level_id,$conduct_id)
+    public function getConductrule($level_id,$conduct_id,$rewards_penalties_id)
     {
-        return RuleConduct::findOne(['level_id' => $level_id,'conduct_id' => $conduct_id]);
+        return RuleConduct::findOne(['level_id' => $level_id,
+            'conduct_id' => $conduct_id,
+            'rewards_penalties_id' => $rewards_penalties_id]);
     }
 
     public function getRewardspenalties()

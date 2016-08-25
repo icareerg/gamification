@@ -6,6 +6,7 @@ use common\models\Player;
 use common\models\PlayLog;
 use common\models\PlaylogSearch;
 use common\models\Duration;
+use common\models\RewardsPenalties;
 use common\models\RuleConduct;
 use common\models\RuleDuration;
 use Yii;
@@ -75,6 +76,7 @@ class PlaylogController extends Controller
             $player_id = $data['PlayLog']['player_id'];
             $conduct_id = $data['PlayLog']['conduct_id'];
             $duration_id = $data['PlayLog']['duration_id'];
+            $rewards_penalties_id = $data['PlayLog']['rewards_penalties_id'];
             //预构造
             $model->load(Yii::$app->request->post());
             //获取级别
@@ -82,8 +84,8 @@ class PlaylogController extends Controller
             $level_id = $player->level->level_id;
             //获取级别对应的经验值和积分
             $play_rule_conduct = new RuleConduct();
-            $experience = $play_rule_conduct->getConductrule($level_id,$conduct_id)->experience;
-            $integral = $play_rule_conduct->getConductrule($level_id,$conduct_id)->integral;
+            $experience = $play_rule_conduct->getConductrule($level_id,$conduct_id,$rewards_penalties_id)->experience;
+            $integral = $play_rule_conduct->getConductrule($level_id,$conduct_id,$rewards_penalties_id)->integral;
             //获取时长对应的积分百分比
             $play_rule_duration = new RuleDuration();
             $percentage = $play_rule_duration->getDurationrule($conduct_id,$duration_id)->percentage;
@@ -106,10 +108,12 @@ class PlaylogController extends Controller
         } else {
             $player = new Player();
             $duration = new Duration();
+            $rewards_penalties = new RewardsPenalties();
             return $this->render('create', [
                 'model' => $model,
                 'player' => $player,
                 'duration' => $duration,
+                'rewards_penalties' => $rewards_penalties,
             ]);
         }
     }
@@ -129,11 +133,13 @@ class PlaylogController extends Controller
         } else {
             $player = new Player();
             $duration = new Duration();
+            $rewards_penalties = new RewardsPenalties();
             $model->happen_time = date('Y-m-d h:i',$model->happen_time);
             return $this->render('update', [
                 'model' => $model,
                 'player' => $player,
                 'duration' => $duration,
+                'rewards_penalties' => $rewards_penalties,
             ]);
         }
     }

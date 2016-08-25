@@ -34,7 +34,7 @@ class Player extends \yii\db\ActiveRecord
             [['player_id', 'player_name', 'passwd', 'level_id'], 'required'],
             [['player_id', 'level_id'], 'integer'],
             [['level_name'], 'string'],
-            [['experience', 'integral'], 'decimal'],
+            [['experience', 'integral'], 'double'],
             [['player_name', 'passwd'], 'string', 'max' => 50],
         ];
     }
