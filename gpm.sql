@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: 2016-08-19 18:07:45
+-- Generation Time: 2016-08-25 09:34:18
 -- 服务器版本： 5.5.42
 -- PHP Version: 5.6.10
 
@@ -44,7 +44,7 @@ INSERT INTO `account` (`account_id`, `account_type`, `happen_time`, `integral`, 
 CREATE TABLE `duration` (
   `duration_id` tinyint(1) NOT NULL COMMENT '时长类型ID',
   `duration_name` varchar(50) NOT NULL COMMENT '时长'
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `duration`
@@ -60,7 +60,7 @@ INSERT INTO `duration` (`duration_id`, `duration_name`) VALUES
 (7, '91-120分钟'),
 (8, '121-180分钟'),
 (9, '181-240分钟'),
-(11, '其它');
+(10, '其它');
 
 -- --------------------------------------------------------
 
@@ -101,9 +101,9 @@ CREATE TABLE `player` (
 --
 
 INSERT INTO `player` (`player_id`, `player_name`, `passwd`, `level_id`, `experience`, `integral`) VALUES
-(1, '陈鹏威', '5387491ba0d58aeba1b2f22eab3cacda', 1, 0, -250),
+(1, '陈鹏威', '21c3cd2bca7392cffaae943109127c01', 1, 0, -250),
 (2, '贾伟', '96e79218965eb72c92a549dd5a330112', 1, 200, -270),
-(3, '王超军', '96e79218965eb72c92a549dd5a330112', 1, 2105, 2055),
+(3, '王超军', '92a35d8b542d4b11a6430f4db05c7e8d', 1, 2105, 2055),
 (4, '陈廷亮', '96e79218965eb72c92a549dd5a330112', 1, 600, 40),
 (5, '李雪坤', '96e79218965eb72c92a549dd5a330112', 5, 542, 520);
 
@@ -161,51 +161,52 @@ CREATE TABLE `play_log` (
   `player_id` int(5) NOT NULL COMMENT '玩家ID',
   `conduct_id` tinyint(1) NOT NULL COMMENT '行为',
   `duration_id` tinyint(1) NOT NULL COMMENT '时长类型ID',
+  `rewards_penalties_id` int(5) NOT NULL COMMENT '奖惩类型ID',
   `experience` double NOT NULL COMMENT '经验值',
   `integral` double NOT NULL COMMENT '积分',
   `happen_time` int(10) NOT NULL COMMENT '时间'
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COMMENT='积分及经验获取记录';
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COMMENT='积分及经验获取记录';
 
 --
 -- 转存表中的数据 `play_log`
 --
 
-INSERT INTO `play_log` (`play_id`, `player_id`, `conduct_id`, `duration_id`, `experience`, `integral`, `happen_time`) VALUES
-(3, 2, 1, 2, 0, -200, 1470639427),
-(4, 1, 1, 2, 0, -200, 1470639427),
-(5, 1, 4, 10, 0, 200, 1470639427),
-(8, 1, 1, 2, 0, -200, 1470714468),
-(9, 2, 1, 2, 0, -200, 1470714468),
-(10, 3, 1, 1, 100, 100, 1470708600),
-(11, 3, 1, 1, 100, 100, 1470797830),
-(12, 3, 1, 1, 100, 100, 1470797830),
-(13, 3, 1, 1, 100, 100, 1470797830),
-(14, 3, 1, 1, 100, 100, 1470797830),
-(15, 3, 1, 1, 100, 100, 1470797830),
-(16, 3, 1, 1, 100, 100, 1470797830),
-(17, 3, 2, 2, 250, 250, 1470797830),
-(18, 3, 1, 2, 200, 200, 1470797830),
-(19, 3, 2, 2, 250, 250, 1470797830),
-(20, 3, 3, 2, 0, -100, 1470797830),
-(21, 5, 1, 3, 210, 210, 1470797830),
-(22, 5, 1, 3, 210, 210, 1470797830),
-(23, 5, 1, 1, 100, 100, 1470797830),
-(24, 5, 3, 5, 0, -50, 1470797830),
-(25, 4, 1, 2, 200, 200, 1470797830),
-(26, 4, 1, 2, 0, -40, 1470797830),
-(27, 4, 1, 2, 200, 200, 1470797830),
-(28, 4, 1, 2, 0, -40, 1470797830),
-(29, 4, 1, 2, 0, -200, 1470797830),
-(30, 4, 1, 2, 0, -40, 1470797830),
-(31, 4, 2, 2, 0, -250, 1470797830),
-(32, 4, 1, 2, 0, -40, 1470797830),
-(33, 4, 1, 2, 200, 200, 1470797830),
-(34, 2, 1, 2, 200, 200, 1470808672),
-(35, 2, 1, 2, 0, -120, 1470808672),
-(36, 1, 1, 2, 0, -100, 1470808672),
-(37, 3, 2, 6, 375, 375, 1470881816),
-(38, 3, 1, 1, 100, 100, 1471231982),
-(39, 3, 1, 5, 230, 230, 1471314089);
+INSERT INTO `play_log` (`play_id`, `player_id`, `conduct_id`, `duration_id`, `rewards_penalties_id`, `experience`, `integral`, `happen_time`) VALUES
+(3, 2, 1, 2, 2, 0, -200, 1470639427),
+(4, 1, 1, 2, 2, 0, -200, 1470639427),
+(5, 1, 4, 10, 1, 0, 200, 1470639427),
+(8, 1, 1, 2, 2, 0, -200, 1470714468),
+(9, 2, 1, 2, 2, 0, -200, 1470714468),
+(10, 3, 1, 1, 1, 100, 100, 1470708600),
+(11, 3, 1, 1, 1, 100, 100, 1470797830),
+(12, 3, 1, 1, 1, 100, 100, 1470797830),
+(13, 3, 1, 1, 1, 100, 100, 1470797830),
+(14, 3, 1, 1, 1, 100, 100, 1470797830),
+(15, 3, 1, 1, 1, 100, 100, 1470797830),
+(16, 3, 1, 1, 1, 100, 100, 1470797830),
+(17, 3, 2, 2, 1, 250, 250, 1470797830),
+(18, 3, 1, 2, 1, 200, 200, 1470797830),
+(19, 3, 2, 2, 1, 250, 250, 1470797830),
+(20, 3, 3, 2, 2, 0, -100, 1470797830),
+(21, 5, 1, 3, 1, 210, 210, 1470797830),
+(22, 5, 1, 3, 1, 210, 210, 1470797830),
+(23, 5, 1, 1, 1, 100, 100, 1470797830),
+(24, 5, 3, 5, 2, 0, -50, 1470797830),
+(25, 4, 1, 2, 1, 200, 200, 1470797830),
+(26, 4, 1, 2, 2, 0, -40, 1470797830),
+(27, 4, 1, 2, 1, 200, 200, 1470797830),
+(28, 4, 1, 2, 2, 0, -40, 1470797830),
+(29, 4, 1, 2, 2, 0, -200, 1470797830),
+(30, 4, 1, 2, 2, 0, -40, 1470797830),
+(31, 4, 2, 2, 2, 0, -250, 1470797830),
+(32, 4, 1, 2, 2, 0, -40, 1470797830),
+(33, 4, 1, 2, 1, 200, 200, 1470797830),
+(34, 2, 1, 2, 1, 200, 200, 1470808672),
+(35, 2, 1, 2, 2, 0, -120, 1470808672),
+(36, 1, 1, 2, 2, 0, -100, 1470808672),
+(37, 3, 2, 6, 1, 375, 375, 1470881816),
+(38, 3, 1, 1, 1, 100, 100, 1471231982),
+(39, 3, 1, 5, 1, 230, 230, 1471314089);
 
 -- --------------------------------------------------------
 
@@ -288,7 +289,7 @@ CREATE TABLE `rule_duration` (
   `conduct_id` tinyint(1) NOT NULL COMMENT '行为类别ID',
   `duration_id` tinyint(1) NOT NULL COMMENT '时长类型ID',
   `percentage` double NOT NULL COMMENT '百分比'
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `rule_duration`
@@ -296,13 +297,31 @@ CREATE TABLE `rule_duration` (
 
 INSERT INTO `rule_duration` (`rule_id`, `conduct_id`, `duration_id`, `percentage`) VALUES
 (1, 1, 1, 0.5),
-(2, 1, 2, 0.9999),
-(3, 1, 3, 0.9999),
-(4, 1, 4, 0.9999),
-(5, 1, 1, 0.9999),
-(6, 1, 1, 0.9999),
-(7, 1, 1, 1.5),
-(8, 1, 1, 1.4);
+(9, 1, 2, 1),
+(10, 1, 3, 1.05),
+(11, 1, 4, 1.1),
+(12, 1, 5, 1.15),
+(13, 1, 6, 1.2),
+(14, 1, 8, 1.5),
+(15, 1, 9, 1.7),
+(16, 2, 1, 0.55),
+(17, 2, 2, 1.1),
+(18, 2, 3, 1.2),
+(20, 2, 4, 1.3),
+(21, 2, 5, 1.4),
+(22, 2, 6, 1.5),
+(23, 2, 7, 1.7),
+(24, 2, 8, 2.1),
+(25, 2, 9, 2.5),
+(26, 3, 1, 0.6),
+(27, 3, 2, 1.2),
+(28, 3, 3, 1.35),
+(29, 3, 4, 1.5),
+(30, 3, 5, 1.65),
+(31, 3, 6, 1.8),
+(32, 3, 7, 2.05),
+(33, 3, 8, 2.55),
+(34, 3, 9, 3.05);
 
 -- --------------------------------------------------------
 
@@ -415,7 +434,7 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT for table `duration`
 --
 ALTER TABLE `duration`
-  MODIFY `duration_id` tinyint(1) NOT NULL AUTO_INCREMENT COMMENT '时长类型ID',AUTO_INCREMENT=12;
+  MODIFY `duration_id` tinyint(1) NOT NULL AUTO_INCREMENT COMMENT '时长类型ID',AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `player_conduct`
 --
@@ -430,7 +449,7 @@ ALTER TABLE `player_level`
 -- AUTO_INCREMENT for table `play_log`
 --
 ALTER TABLE `play_log`
-  MODIFY `play_id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'ID',AUTO_INCREMENT=41;
+  MODIFY `play_id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'ID',AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT for table `rewards_penalties`
 --
@@ -445,7 +464,7 @@ ALTER TABLE `rule_conduct`
 -- AUTO_INCREMENT for table `rule_duration`
 --
 ALTER TABLE `rule_duration`
-  MODIFY `rule_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',AUTO_INCREMENT=9;
+  MODIFY `rule_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `user`
 --
