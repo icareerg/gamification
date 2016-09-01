@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Player */
+/* @var $model common\models\Player */
 
 $this->title = $model->player_name;
 $this->params['breadcrumbs'][] = ['label' => '玩家', 'url' => ['index']];
@@ -39,6 +39,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'experience',
             'integral',
+            [
+                'label' => $model->attributeLabels()['overtime_count'],
+                'value' => $model->getOvertime($model->player_id),
+            ],
         ],
     ]) ?>
 

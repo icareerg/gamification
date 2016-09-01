@@ -29,6 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ['attribute'=>'level_name','value' => 'level_name','enableSorting' => false],
             ['attribute'=>'experience','value' => 'experience','enableSorting' => false],
             ['attribute'=>'integral','value' => 'integral','enableSorting' => false],
+            ['attribute'=>'overtime_count','value'=>function($model){
+                      return  \common\models\Player::getOvertime($model->player_id,date("Y-m",time()));
+                    },'enableSorting' => false],
             [
             'class' => 'yii\grid\ActionColumn',
             'header' => '操作',

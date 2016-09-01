@@ -16,7 +16,7 @@ class PlayerSearch extends Player
     public function rules()
     {
         return [
-            [['player_id', 'level_id'], 'integer'],
+            [['player_id', 'level_id','overtime_count'], 'integer'],
             [['player_name', 'passwd'], 'safe'],
             [['level_name', 'passwd'], 'string'],
             [['experience', 'integral'], 'double'],

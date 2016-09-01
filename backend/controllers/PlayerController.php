@@ -45,6 +45,21 @@ class PlayerController extends Controller
     }
 
     /**
+     * Lists all Player Overtime.
+     * @return mixed
+     */
+    public function actionOvertime()
+    {
+        $searchModel = new PlayerSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('overtime', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
      * Displays a single Player model.
      * @param integer $id
      * @return mixed
