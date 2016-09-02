@@ -54,6 +54,7 @@ class Player extends \yii\db\ActiveRecord
             'experience' => '玩家经验值',
             'integral' => '玩家积分',
             'overtime_count' => '当月超时次数',
+            'bugs' => '缺陷次数',
         ];
     }
 
@@ -69,6 +70,16 @@ class Player extends \yii\db\ActiveRecord
         $datas = PlayLog::find()
             ->andFilterWhere(['player_id'=>$id])
             ->andFilterWhere(['<','integral',0])
+            ->andFilterWhere(['between','happen_time',Player::get_month_time('first',$yearmonth),Player::get_month_time('end',$yearmonth)])
+            ->count();
+        return $datas;
+    }
+
+    public static function getBugs($id,$yearmonth)
+    {
+//        $datas = PlayLog::find()->where('player_id = :player_id and integral < :number',[':number'=>0,':player_id'=>$id])->count();
+        $datas = Bug::find()
+            ->andFilterWhere(['player_id'=>$id])
             ->andFilterWhere(['between','happen_time',Player::get_month_time('first',$yearmonth),Player::get_month_time('end',$yearmonth)])
             ->count();
         return $datas;

@@ -24,14 +24,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
 //             ['class' => 'yii\grid\SerialColumn'],
 
-            ['attribute'=>'player_id','value' => 'player_id','enableSorting' => false],
-            ['attribute'=>'player_name','value' => 'player_name','enableSorting' => false],
-            ['attribute'=>'level_name','value' => 'level_name','enableSorting' => false],
-            ['attribute'=>'experience','value' => 'experience','enableSorting' => false],
-            ['attribute'=>'integral','value' => 'integral','enableSorting' => false],
+            ['attribute'=>'player_id','value' => 'player_id','enableSorting' => false,'options'=>array('style'=>"width:150px")],
+            ['attribute'=>'player_name','value' => 'player_name','enableSorting' => false,'options'=>array('style'=>"width:150px")],
+            ['attribute'=>'level_name','value' => 'level_name','enableSorting' => false,'options'=>array('style'=>"width:150px")],
+            ['attribute'=>'experience','value' => 'experience','enableSorting' => false,'options'=>array('style'=>"width:150px")],
+            ['attribute'=>'integral','value' => 'integral','enableSorting' => false,'options'=>array('style'=>"width:150px")],
             ['attribute'=>'overtime_count','value'=>function($model){
                       return  \common\models\Player::getOvertime($model->player_id,date("Y-m",time()));
-                    },'enableSorting' => false],
+                    },'enableSorting' => false,'options'=>array('style'=>"width:150px")],
+            ['attribute'=>'bugs','value'=>function($model){
+                      return  \common\models\Player::getBugs($model->player_id,date("Y-m",time()));
+                    },'enableSorting' => false,'options'=>array('style'=>"width:150px")],
             [
             'class' => 'yii\grid\ActionColumn',
             'header' => '操作',
