@@ -1,1 +1,1 @@
-Gamification in business and IT managemen
+Gamification in business and IT management
