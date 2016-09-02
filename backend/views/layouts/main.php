@@ -38,11 +38,14 @@ AppAsset::register($this);
         $menuItems[] = ['label' => '登录', 'url' => ['/site/login']];
     } else {
         $menuItems = [
-            ['label' => '玩家清单', 'url' => ['/player/index']],
-            ['label' => '超时数据', 'url' => ['/player/overtime']],
-            ['label' => '历史数据', 'url' => ['/playlog/index']],
-            ['label' => '行为配置', 'url' => ['/ruleconduct/index']],
-            ['label' => '时长配置', 'url' => ['/ruleduration/index']],
+            ['label' => '玩家', 'url' => ['/player/index']],
+            ['label' => '超时', 'url' => ['/player/overtime']],
+            ['label' => '缺陷', 'url' => ['/bug/index']],
+            ['label' => '奖惩', 'url' => ['/playlog/index']],
+            ['label' => '配置', 'items' => [
+                ['label' => '行为配置', 'url' => ['/ruleconduct/index']],
+                ['label' => '时长配置', 'url' => ['/ruleduration/index']],
+            ]],
         ];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')

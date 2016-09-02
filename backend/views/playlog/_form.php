@@ -7,7 +7,7 @@ use yii\widgets\ActiveForm;
 //use app\models\PlayerConduct;
 //use app\models\PlayRule;
 //use app\models\DurationRule;
-use kartik\datetime\DateTimePicker;
+//use kartik\datetime\DateTimePicker;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\PlayLog */
