@@ -6,7 +6,7 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * RuleDurationSearch represents the model behind the search form about `app\models\RuleDuration`.
+ * RuleDurationSearch represents the model behind the search form about `common\models\RuleDuration`.
  */
 class RuleDurationSearch extends RuleDuration
 {

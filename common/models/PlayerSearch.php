@@ -6,7 +6,7 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * PlayerSearch represents the model behind the search form about `app\models\Player`.
+ * PlayerSearch represents the model behind the search form about `common\models\Player`.
  */
 class PlayerSearch extends Player
 {

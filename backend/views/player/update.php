@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Player */
+/* @var $model common\models\Player */
 
 $this->title = '修改用户: ' . $model->player_name;
 $this->params['breadcrumbs'][] = ['label' => '玩家清单', 'url' => ['index']];

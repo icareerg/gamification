@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Player */
+/* @var $model common\models\Player */
 
 $this->title = '新增玩家';
 $this->params['breadcrumbs'][] = ['label' => '玩家', 'url' => ['index']];

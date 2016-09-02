@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\RuleDuration */
+/* @var $model common\models\RuleDuration */
 
 $this->title = '新增';
 $this->params['breadcrumbs'][] = ['label' => '时长配置', 'url' => ['index']];

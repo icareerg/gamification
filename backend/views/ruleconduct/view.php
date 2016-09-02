@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\RuleConduct */
+/* @var $model common\models\RuleConduct */
 
 $this->title = $model->rule_id;
 $this->params['breadcrumbs'][] = ['label' => '行为配置', 'url' => ['index']];

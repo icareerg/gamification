@@ -2,11 +2,11 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-//use app\models\Player;
-//use app\models\PlayLog;
-//use app\models\PlayerConduct;
-//use app\models\PlayRule;
-//use app\models\DurationRule;
+//use common\models\Player;
+//use common\models\PlayLog;
+//use common\models\PlayerConduct;
+//use common\models\PlayRule;
+//use common\models\DurationRule;
 //use kartik\datetime\DateTimePicker;
 
 /* @var $this yii\web\View */

@@ -6,7 +6,7 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * RuleConductSearch represents the model behind the search form about `app\models\RuleConduct`.
+ * RuleConductSearch represents the model behind the search form about `common\models\RuleConduct`.
  */
 class RuleConductSearch extends RuleConduct
 {

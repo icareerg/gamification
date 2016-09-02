@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\PlayLog */
+/* @var $model common\models\PlayLog */
 
 $this->title = '修改数据: ' . $model->play_id;
 $this->params['breadcrumbs'][] = ['label' => '数据', 'url' => ['index']];

@@ -43,8 +43,8 @@ AppAsset::register($this);
             ['label' => '缺陷', 'url' => ['/bug/index']],
             ['label' => '奖惩', 'url' => ['/playlog/index']],
             ['label' => '配置', 'items' => [
-                ['label' => '行为配置', 'url' => ['/ruleconduct/index']],
-                ['label' => '时长配置', 'url' => ['/ruleduration/index']],
+                ['label' => '行为', 'url' => ['/ruleconduct/index']],
+                ['label' => '时长', 'url' => ['/ruleduration/index']],
             ]],
         ];
         $menuItems[] = '<li>'

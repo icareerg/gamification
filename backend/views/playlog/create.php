@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\PlayLog */
+/* @var $model common\models\PlayLog */
 
 $this->title = '新增数据';
 $this->params['breadcrumbs'][] = ['label' => '数据', 'url' => ['index']];
