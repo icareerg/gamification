@@ -54,7 +54,7 @@ class Player extends \yii\db\ActiveRecord
             'experience' => '玩家经验值',
             'integral' => '玩家积分',
             'overtime_count' => '当月超时次数',
-            'bugs' => '缺陷次数',
+            'bugs' => '当月缺陷次数',
         ];
     }
 

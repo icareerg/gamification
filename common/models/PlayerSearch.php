@@ -16,7 +16,7 @@ class PlayerSearch extends Player
     public function rules()
     {
         return [
-            [['player_id', 'level_id','overtime_count'], 'integer'],
+            [['player_id', 'level_id'], 'integer'],
             [['player_name', 'passwd'], 'safe'],
             [['level_name', 'passwd'], 'string'],
             [['experience', 'integral'], 'double'],
@@ -63,11 +63,11 @@ class PlayerSearch extends Player
         $query->andFilterWhere([
             'player_id' => $this->player_id,
             'level_id' => $this->level_id,
-            'experience' => $this->experience,
-            'integral' => $this->integral,
         ]);
 
         $query->andFilterWhere(['like', 'player_name', $this->player_name])
+            ->andFilterWhere(['like', 'experience', $this->experience])
+            ->andFilterWhere(['like', 'integral', $this->integral])
             ->andFilterWhere(['like', 'level_name', $this->level_name]);
 
         return $dataProvider;
